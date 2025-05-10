@@ -1,0 +1,353 @@
+/* --- Google Style Variables --- */
+:root {
+    --google-blue: #1a73e8;
+    --google-blue-darker: #1765cc; /* For hover/active */
+    --google-blue-light-bg: #e8f0fe; /* For things like active select option */
+    --google-green: #1e8e3e; /* Success */
+    --google-red: #d93025;   /* Error */
+    --google-yellow: #fbbc04; /* Info/Warning */
+    --google-grey-100: #f8f9fa; /* Light background for inputs etc. */
+    --google-grey-200: #f1f3f4; /* Body background */
+    --google-grey-300: #e8eaed; /* Lighter borders */
+    --google-grey-500: #bdc1c6; /* Medium borders */
+    --google-grey-700: #5f6368; /* Secondary text */
+    --google-grey-900: #202124; /* Primary text */
+    --white: #ffffff;
+
+    --font-family-main: 'Roboto', sans-serif;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --container-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 2px 6px 2px rgba(60, 64, 67, .15);
+    --input-shadow-focus: 0 0 0 2px var(--google-blue-light-bg);
+}
+
+/* --- General Reset & Body Style --- */
+body {
+    font-family: var(--font-family-main);
+    line-height: 1.6;
+    margin: 0;
+    padding: 24px;
+    background-color: var(--google-grey-200);
+    background-image:
+            linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--google-grey-900);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* --- Container --- */
+.container {
+    max-width: 760px;
+    margin: 24px auto;
+    background: var(--white);
+    padding: 28px 32px;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--container-shadow);
+    flex-grow: 1;
+}
+
+/* --- Typography --- */
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--google-grey-900);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--google-grey-900);
+    text-align: left;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--google-grey-300);
+    padding-bottom: 8px;
+}
+
+p {
+    margin-bottom: 16px;
+    color: var(--google-grey-700);
+    font-size: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--google-grey-900);
+}
+
+/* --- Form Elements --- */
+textarea,
+input[type="text"] { /* Removed select from here as it's no longer used for input type */
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--google-grey-500);
+    border-radius: var(--border-radius-small);
+    font-size: 14px;
+    background-color: var(--google-grey-100);
+    color: var(--google-grey-900);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea:hover,
+input[type="text"]:hover {
+    border-color: var(--google-grey-700); /* Subtle hover effect */
+}
+
+textarea:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--google-blue);
+    box-shadow: var(--input-shadow-focus);
+    background-color: var(--white);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* --- Buttons --- */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-family-main);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease; /* Added transform */
+    text-align: center;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--google-blue-light-bg);
+}
+
+button:active { /* Click feedback */
+    transform: scale(0.98);
+}
+
+/* Main action button */
+#extractButton {
+    display: block;
+    width: 100%;
+    background-color: var(--google-blue);
+    color: var(--white);
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#extractButton:hover {
+    background-color: var(--google-blue-darker);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#extractButton:active { /* Specific active state if needed, e.g., less pronounced */
+    transform: scale(0.99);
+}
+
+
+/* Output controls styling */
+.output-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.output-controls button {
+    width: auto;
+    flex-grow: 1;
+}
+
+.output-controls input[type="text"] {
+    width: auto;
+    flex-grow: 1.5;
+    margin-bottom: 0;
+    padding: 9px 12px;
+}
+
+
+#copyButton {
+    background-color: var(--google-green);
+    color: var(--white);
+}
+#copyButton:hover {
+    background-color: #1a7d34;
+}
+
+#mergeButton {
+    background-color: var(--google-grey-700);
+    color: var(--white);
+}
+#mergeButton:hover {
+    background-color: var(--google-grey-900);
+}
+
+
+/* --- Input Options Buttons --- */
+.input-options {
+    margin-bottom: 20px;
+}
+
+.input-options label { /* Already defined globally, ensure it's what you want here */
+    display: block;
+    margin-bottom: 8px;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    /* margin-bottom: 20px; /* Moved to .input-options overall container */
+}
+
+.input-type-button {
+    flex-grow: 1;
+    padding: 10px 15px;
+    background-color: var(--google-grey-100);
+    color: var(--google-grey-700);
+    border: 1px solid var(--google-grey-500);
+    /* transition already defined in general button, but can be specified if different */
+}
+
+.input-type-button:hover {
+    background-color: var(--google-grey-300);
+    border-color: var(--google-grey-700);
+}
+
+.input-type-button.active {
+    background-color: var(--google-blue-light-bg);
+    color: var(--google-blue);
+    border-color: var(--google-blue);
+    font-weight: 700; /* Bolder for active state */
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); /* Subtle inset shadow for active */
+}
+
+.input-type-button:active {
+    transform: scale(0.97); /* More pronounced click for these */
+}
+
+/* --- File Input & Drop Zone --- */
+input[type="file"] {
+    display: none;
+}
+
+.drop-zone {
+    border: 2px dashed var(--google-grey-500);
+    border-radius: var(--border-radius-small);
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--google-grey-100);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, border-style 0.2s ease-in-out; /* Added border-style */
+    margin-bottom: 18px;
+}
+
+.drop-zone.dragover {
+    background-color: var(--google-blue-light-bg);
+    border-color: var(--google-blue);
+    border-style: solid;
+}
+
+.drop-zone label {
+    font-weight: 500;
+    color: var(--google-blue);
+    display: inline-block;
+    margin-bottom: 6px;
+}
+.drop-zone label:hover {
+    text-decoration: underline;
+}
+
+.drop-zone-text {
+    font-size: 13px;
+    color: var(--google-grey-700);
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+
+/* --- Message Area --- */
+.message {
+    text-align: center;
+    margin-top: 16px;
+    padding: 10px 12px; /* Slightly more padding */
+    border-radius: var(--border-radius-small);
+    font-weight: 500;
+    font-size: 14px;
+    min-height: 2.8em; /* Adjusted for padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for messages */
+}
+
+.message:empty {
+    /* display: none; /* This could cause layout shift, min-height helps */
+    background-color: transparent !important; /* Hide background if empty */
+    color: transparent !important; /* Hide text if empty */
+}
+
+.message.success {
+    color: var(--google-green);
+    background-color: #e6f4ea;
+}
+
+.message.error {
+    color: var(--google-red);
+    background-color: #fce8e6;
+}
+
+.message.info {
+    color: var(--google-blue);
+    background-color: var(--google-blue-light-bg);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 13px;
+    color: var(--google-grey-700);
+    margin-top: auto;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 15px; /* Reduce padding on very small screens */
+    }
+
+    h1 {
+        font-size: 22px; /* Slightly smaller H1 */
+    }
+
+    .output-controls {
+        flex-direction: column; /* Stack output buttons vertically */
+        gap: 10px;
+    }
+    .output-controls button,
+    .output-controls input[type="text"] {
+        width: 100%; /* Make them full width in the column */
+    }
+
+    .button-group { /* Stack input type buttons if needed */
+        /* flex-direction: column; */ /* Uncomment if you prefer them stacked on small screens */
+    }
+}

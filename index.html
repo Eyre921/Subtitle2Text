@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字幕文本提取工具</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>字幕文本提取工具</h1>
+    <p>粘贴字幕内容，或上传/拖拽字幕文件 (支持 .srt, .vtt, .ass, .ssa, .sbv, .smi)。工具将提取纯文本，移除时间戳和样式标签。</p>
+
+    <div class="input-options">
+        <label>选择输入方式:</label>
+        <div class="button-group">
+            <button id="inputTypeText" class="input-type-button active" data-input-type="text">粘贴文本</button>
+            <button id="inputTypeFile" class="input-type-button" data-input-type="file">上传/拖拽文件</button>
+        </div>
+    </div>
+
+    <div id="text-input-area">
+        <label for="subtitleInput">在此处粘贴字幕内容:</label>
+        <textarea id="subtitleInput" rows="12" placeholder="在此处粘贴您的 SRT, VTT, ASS/SSA, SBV, 或 SMI 字幕内容..."></textarea>
+    </div>
+
+    <div id="file-input-area" style="display:none;">
+        <div id="file-drop-zone" class="drop-zone">
+            <label for="subtitleFile">选择字幕文件:</label>
+            <input type="file" id="subtitleFile" accept=".srt,.vtt,.ass,.ssa,.sbv,.smi">
+            <p class="drop-zone-text">或将文件拖拽到此处</p>
+        </div>
+    </div>
+
+    <button id="extractButton">提取文本</button>
+
+    <h2>提取结果:</h2>
+    <div class="output-controls">
+        <button id="copyButton">复制结果</button>
+        <button id="mergeButton">合并为一段</button>
+        <input type="text" id="mergeSeparator" value=", " placeholder="合并分隔符" title="用于“合并为一段”的分隔符">
+    </div>
+    <textarea id="outputText" rows="12" readonly placeholder="提取的文本将显示在此处..."></textarea>
+    <p id="messageArea" class="message"></p>
+</div>
+
+<footer>
+<!--    <p>&copy; 2024-2025 字幕工具 (Last Updated: 2025-05-11)</p>-->
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
